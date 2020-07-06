@@ -16,7 +16,7 @@ pipeline {
 		//Code ends for stage Clean
 		
 		
-	
+		/*
 		//Code starts for stage PMD
 		stage('PMD') {
             steps {
@@ -24,6 +24,7 @@ pipeline {
             }
         }
 		//Code ends for stage PMD
+		*/
 		
 		//Code starts for stage SonarQube
 		
@@ -41,7 +42,7 @@ pipeline {
 
 		//Code ends for stage SonarQube
 		
-	
+		/*
 		//Code starts for stage Compile
 		stage('Compile') {
             steps {
@@ -124,7 +125,7 @@ pipeline {
             }
         }
 		//Code ends for stage BDD Test	
-		
+		*/
 		// ******ALL CODE TO BE ADDED ABOVE THIS COMMENT******
     }
 }
