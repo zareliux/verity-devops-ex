@@ -27,7 +27,7 @@ pipeline {
 		*/
 		
 		
-		/*
+		
 		//Code starts for stage Compile
 		stage('Compile') {
             steps {
@@ -35,7 +35,7 @@ pipeline {
             }
         }
 		//Code Ends for stage Compile
-		*/
+		
 		
 		//Code starts for stage SonarQube
 		
