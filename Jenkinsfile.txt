@@ -33,7 +33,7 @@ pipeline {
         }
 		//Code Ends for stage Compile
 		
-		
+		/*
 		//Code starts for stage SonarQube
 		stage('Static Code Analysis') {
             steps {
@@ -47,6 +47,7 @@ pipeline {
 			}
 		}
 		//Code ends for stage SonarQube
+		*/
 		
 		//Code starts for stage Unit Test
         stage('Unit Test') {
