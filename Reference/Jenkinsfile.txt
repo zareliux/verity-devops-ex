@@ -6,6 +6,7 @@ pipeline {
 		// ******ALL CODE TO BE ADDED BELOW THIS COMMENT******
 		
 			
+			
 		//Code starts for stage Clean
         stage('Clean') {
             steps {
@@ -15,7 +16,6 @@ pipeline {
 		//Code ends for stage Clean
 		
 		
-	
 		//Code starts for stage PMD
 		stage('PMD') {
             steps {
@@ -23,7 +23,6 @@ pipeline {
             }
         }
 		//Code ends for stage PMD
-		
 		
 		
 		//Code starts for stage Compile
@@ -34,7 +33,22 @@ pipeline {
         }
 		//Code Ends for stage Compile
 		
-				
+		
+		//Code starts for stage SonarQube
+		stage('Static Code Analysis') {
+            steps {
+			 script {
+          scannerHome = tool 'sonar-scanner'
+        }
+				withSonarQubeEnv('My SonarQube Server')
+				{
+				sh "${scannerHome}/bin/sonar-scanner"
+				}
+			}
+		}
+		//Code ends for stage SonarQube
+		
+		
 		//Code starts for stage Unit Test
         stage('Unit Test') {
             steps {
@@ -49,7 +63,6 @@ pipeline {
 		//Code ends for stage Unit Test
 		
 		
-		
 		//Code starts for stage JaCoCo
 		stage('JaCoCo') {
             steps {
@@ -57,7 +70,6 @@ pipeline {
             }
         }
 		//Code ends for stage JaCoCo
-		
 		
 		
 		//Code starts for stage Install
@@ -78,7 +90,6 @@ pipeline {
 		//Code ends for stage Tomcat Server Up
 		
 		
-		
 		//Code starts for stage War Deployed on Tomcat Server
 		stage('War Deployed on Tomcat Server') {
             steps {
@@ -88,16 +99,28 @@ pipeline {
 		//Code ends for stage War Deployed on Tomcat Server
 		
 		
-		
 		//Code starts for stage System Test
 		stage('System Test') {
             steps {
 				//Change git url below as per your forked github repository URL
-				git url: 'https://github.com/umangsaltuniv/EMSystemTests.git'
+				git url: 'https://github.com/umangsaltuniv/EMSystemTests-ex.git'
             	sh 'mvn -Dtest=ExpenseManagerSystemTest test'
             }
         }
-		//Code ends for stage System Test
+		//Code ends for System Test	
+		
+		
+		//Code starts for BDD Test
+		stage('BDD Test') {
+            steps {
+				//Change git url below as per your forked github repository URL
+				git url: 'https://github.com/umangsaltuniv/EMSystemTests_BDD.git'
+            	sh 'mvn -Dtest=TestRunner test'
+            }
+        }
+		//Code ends for stage BDD Test	
+		
+		
 		
 		// ******ALL CODE TO BE ADDED ABOVE THIS COMMENT******
     }
