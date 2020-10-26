@@ -63,13 +63,13 @@ pipeline {
 		//Code ends for stage Unit Test
 		
 		
-		//Code starts for stage JaCoCo
-		stage('JaCoCo') {
+		//Code starts for stage Code Coverage
+		stage('Code Coverage') {
             steps {
                 sh 'mvn jacoco:report'
             }
         }
-		//Code ends for stage JaCoCo
+		//Code ends for stage Code Coverage
 		
 		
 		//Code starts for stage Install
