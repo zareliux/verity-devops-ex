@@ -106,7 +106,7 @@ pipeline {
             	sh 'mvn -Dtest=ExpenseManagerAPITest test'
             }
         }
-		//Code ends for API Test	
+		//Code ends for stage API Test	
 		
 		
 		//Code starts for stage System Test
@@ -117,10 +117,10 @@ pipeline {
             	sh 'mvn -Dtest=ExpenseManagerSystemTest test'
             }
         }
-		//Code ends for System Test	
+		//Code ends for stage System Test	
 		
 		
-		//Code starts for BDD Test
+		//Code starts for stage BDD Test
 		stage('BDD Test') {
             steps {
 				//Change git url below as per your forked github repository URL
