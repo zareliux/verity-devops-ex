@@ -31,7 +31,7 @@ pipeline {
                 sh 'mvn compile'
             }
         }
-		//Code Ends for stage Compile
+		//Code ends for stage Compile
 		
 		
 		//Code starts for stage Code Analysis
