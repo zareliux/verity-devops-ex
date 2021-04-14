@@ -6,7 +6,7 @@ pipeline {
 		// ******ALL CODE TO BE ADDED BELOW THIS COMMENT******
 		
 			
-		/*	
+			
 		//Code starts for stage Clean
         stage('Clean') {
             steps {
@@ -23,7 +23,7 @@ pipeline {
             }
         }
 		//Code ends for stage PMD
-		*/
+		
 		
 		//Code starts for stage Compile
 		stage('Compile') {
@@ -33,7 +33,7 @@ pipeline {
         }
 		//Code ends for stage Compile
 		
-		/*
+		
 		//Code starts for stage Code Analysis
 		stage('Code Analysis') {
             steps {
@@ -70,7 +70,7 @@ pipeline {
             }
         }
 		//Code ends for stage Code Coverage
-		*/
+		
 		
 		//Code starts for stage Install
 		stage('Install') {
