@@ -88,7 +88,7 @@ pipeline {
 		stage('API Test') {
             steps {
 				//Change git url below as per your forked github repository URL
-				git url: 'https://github.com/umangsaltuniv/EMAPITests-ex.git'
+				git url: 'https://github.com/zareliux/EMAPITests-ex.git'
             	sh 'mvn -Dtest=ExpenseManagerAPITest test'
             }
         }
