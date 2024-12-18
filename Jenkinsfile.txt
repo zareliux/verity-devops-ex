@@ -23,19 +23,6 @@ pipeline {
             }
         }
 		//Code ends for stage Compile
-        //Code starts for stage Code Analysis
-		stage('Code Analysis') {
-            steps {
-			 script {
-          scannerHome = tool 'sonar-scanner'
-        }
-				withSonarQubeEnv('My SonarQube Server')
-				{
-				sh "${scannerHome}/bin/sonar-scanner"
-				}
-			}
-		}
-		//Code ends for stage Code Analysis
         //Code starts for stage Unit Test
         stage('Unit Test') {
             steps {
@@ -48,6 +35,19 @@ pipeline {
             }
         }
 		//Code ends for stage Unit Test
+                //Code starts for stage Code Analysis
+		stage('Code Analysis') {
+            steps {
+			 script {
+          scannerHome = tool 'sonar-scanner'
+        }
+				withSonarQubeEnv('My SonarQube Server')
+				{
+				sh "${scannerHome}/bin/sonar-scanner"
+				}
+			}
+		}
+		//Code ends for stage Code Analysis
         //Code starts for stage Code Coverage
 	stage('Code Coverage') {
             steps {
@@ -57,6 +57,6 @@ pipeline {
                 ])
             }
         }
-	//Code ends for stage Code Coverag
+	//Code ends for stage Code Coverage
     }
 }
